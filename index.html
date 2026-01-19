@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakash Rubber Products | Premium Rubber Mouldings</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Typography & Colors --- */
+        :root {
+            --primary-color: #f39c12; /* Matches the sun color in logo */
+            --secondary-color: #2c3e50; /* Dark/Professional */
+            --navbar-height: 100px;   /* Estimated height of your navbar */
+        }
+        
+        /* FIX: PREVENT NAVBAR FROM COVERING TITLES */
+        html {
+            scroll-behavior: smooth;
+        }
+        section {
+            scroll-margin-top: var(--navbar-height); /* This creates the buffer space! */
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* --- Navbar Fixes --- */
+        .navbar {
+            background-color: #ffffff !important; /* White background */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .navbar-brand { 
+            font-weight: 700; 
+            color: #000 !important; 
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: #555 !important;
+            margin-left: 15px;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* --- Global Sections --- */
+        .section-padding { padding: 80px 0; }
+        .bg-light-gray { background-color: #f8f9fa; }
+        
+        /* --- Product Card Fixes (Uniform Size) --- */
+        .product-card { 
+            transition: transform 0.3s; 
+            border: 1px solid #eee; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            height: 100%; 
+        }
+        .product-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+            border-color: var(--primary-color);
+        }
+        .card-img-top {
+            width: 100%;
+            height: 220px;       /* FIXED HEIGHT */
+            object-fit: contain; /* Prevents cutting off the product */
+            padding: 15px;       
+            background-color: #fff;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+        }
+
+        /* --- Footer --- */
+        footer { background-color: #1a1a1a; color: white; padding-top: 60px; }
+        footer a { color: #bbb; text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--primary-color); text-decoration: underline; }
+        
+        /* --- Back to Top --- */
+        #btn-back-to-top {
+            position: fixed; bottom: 20px; right: 20px; display: none;
+            background: var(--primary-color); border: none; color: white;
+            z-index: 1000;
+        }
+
+        /* --- Banner Fixes --- */
+        .carousel-item img {
+            height: 600px;
+            object-fit: cover;
+            object-position: center;
+        }
+        .carousel-item::before {
+            content: "";
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); 
+            z-index: 1;
+        }
+        .carousel-caption {
+            z-index: 2;
+            bottom: 35%;
+        }
+        .carousel-caption h5 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body id="home">
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="images/logo.png" alt="Prakash Rubber Logo" height="50" class="d-inline-block align-text-top me-2">
+                PRAKASH RUBBER
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/banners/banner-1.png" class="d-block w-100" alt="Rubber Mounts">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Leading Manufacturers & Suppliers</h5>
+                    <p class="fs-5">Development & Manufacturing of Rubber Parts & Compounds</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/banners/banner-2.png" class="d-block w-100" alt="Factory">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Excellence Every Step of the Way</h5>
+                    <p class="fs-5">High-quality rubber products for industrial applications.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </header> 
+
+    <section class="section-padding container text-center">
+        <div class="mb-4">
+            <i class="fa-solid fa-handshake fa-4x text-warning mb-3"></i> 
+            <h2 class="fw-bold mb-3">Welcome to Prakash Rubber Products</h2>
+            <p class="lead text-muted mx-auto col-md-9">
+               We are promising to be one of the leading manufacturers & Supplier
+of quality range of Rubber Mouldings. The products offered are
+resistant to heat and have an extraordinary pressure tolerance. We
+are committed to excellence every step of the way. Experience the
+difference with us.
+            </p>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light-gray">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Why Choose Us?</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 p-4 border-0 shadow-sm">
+                        <i class="fa-solid fa-award fa-3x text-primary mb-3"></i>
+                        <h4>Quality Assurance</h4>
+                        <p>We use the highest grade of rubber and advanced machines to ensure leak-proof and durable products.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 p-4 border-0 shadow-sm">
+                        <i class="fa-solid fa-cogs fa-3x text-primary mb-3"></i>
+                        <h4>Infrastructure</h4>
+                        <p>Our highly enriched facility is equipped with sophisticated and modern machinery for smooth production.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 p-4 border-0 shadow-sm">
+                        <i class="fa-solid fa-users fa-3x text-primary mb-3"></i>
+                        <h4>Expert Supervision</h4>
+                        <p>Guided by skilled professionals under the supervision of Mr. Sunil Kisan Salunkhe to improve productivity and quality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding container">
+        <div class="row align-items-center text-center text-md-start">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="images/logo.png" class="img-fluid rounded shadow p-3 bg-white" alt="Prakash Rubber Logo">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-4">About Our Company</h2>
+                <p>We at Prakash Rubber Products, are promising to be one of the
+leading manufacturers, suppliers and of a diverse assortment of
+Rubber Moldings. Range offered by us comprises of Silicon, Viton,
+Polyacrylic, EPDM, Natural, Flurosilicon, NBR, HNBR, SBR and
+Neoprene Rubber Products. The offered mouldings are known for
+their commendable performance, being leak proof, their resistance
+to heat, Oil, water and their pressure tolerance. Highest grade of
+rubber and advanced machines are used in the manufacture of
+these offerings. These mouldings are used in a number of industrial
+and domestic applications. Our highly enriched infrastructural
+facility enables us to function in a smooth and efficient manner. The
+facility we have comprises of several machines and equipment, which
+are highly sophisticated and modern. Our facility/unit is guided by
+highly skilled and qualified professionals, which helps us to improve
+productivity, capacity and quality of our products, under supervision
+& directions of Mr. Sunil Kisan Salunkhe.
+we look for a successful and long term collaboration ...
+</p>
+                <p><strong>Range offered:</strong> Silicon, Viton, Polyacrylic, EPDM, Natural, Flurosilicon, NBR, HNBR, SBR, and Neoprene Rubber Products.</p>
+                <a href="#contact" class="btn btn-warning mt-3 text-white fw-bold px-4 rounded-pill">Contact Us Today</a>
+            </div>
+        </div>
+        
+        <div class="mt-5">
+            <h3 class="text-center mb-4 fw-bold">Product Showcase</h3>
+            <div id="productSlider" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner text-center">
+                    <div class="carousel-item active">
+                        <img src="images/ANTI VIBRATION TURRET MOUNTS-2.png" class="img-fluid" style="max-height: 300px;" alt="Mounts">
+                        <div class="mt-2"><strong>Anti-Vibration Mounts</strong></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Industrial Gasket-3.png" class="img-fluid" style="max-height: 300px;" alt="Gaskets">
+                        <div class="mt-2"><strong>Gaskets</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Our Products</h2>
+            <div class="row g-4">
+                
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/ANTI VIBRATION TURRET MOUNTS-3.png" class="card-img-top" alt="Turret Mounts">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Anti Vibration Turret Mounts</h5>
+                            <p class="card-text text-muted">Rubber to metal bonded mounts for various load capacities.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct1">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/ANTI VIBRATION PADS.png" class="card-img-top" alt="Pads">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Anti-Vibration Pads</h5>
+                            <p class="card-text text-muted">Reduces noise and protects furniture and floors.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct2">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Rubber Mount-2.png" class="card-img-top" alt="O Rings">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Rubber Mount</h5>
+                            <p class="card-text text-muted">Rubber Mount inserted with metal available in size L=103mm X W=58mm.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct4">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Cable Entry.png" class="card-img-top" alt="Hangers">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Cable Entry</h5>
+                            <p class="card-text text-muted">Rubber Sleeves: Useful for cable entry available in various sizes.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct5">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/O RIngs.png" class="card-img-top" alt="Gromets">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">O Rings</h5>
+                            <p class="card-text text-muted">Circular elastomer seals designed to prevent the leakage of fluids or gases.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct6">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Bolt Sandwich Mounts.png" class="card-img-top" alt="Seals">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Bolt Sandwich Mounts</h5>
+                            <p class="card-text text-muted">Designed to protect equipment and machinery against damaging vibration.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct7">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Industrial Gasket.png" class="card-img-top" alt="Seals">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Industrial Gasket</h5>
+                            <p class="card-text text-muted">A mechanical seal that serves to fill the space between two objects.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct8">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Rubber Gromets.png" class="card-img-top" alt="Seals">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Rubber Gromets</h5>
+                            <p class="card-text text-muted">Flexible rings designed to protect and organize cables, wires, or hoses.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct9">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Rubber Damper.png" class="card-img-top" alt="Seals">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Rubber Damper</h5>
+                            <p class="card-text text-muted">Flexible components designed to reduce or absorb vibrations.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct10">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Rubber Washers.png" class="card-img-top" alt="Seals">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Rubber Washers</h5>
+                            <p class="card-text text-muted">Small, circular seals made from flexible rubber material.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct11">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Oil Seals.png" class="card-img-top" alt="Seals">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Oil Seals</h5>
+                            <p class="card-text text-muted">Seals designed to prevent oil leakage in rotating shaft applications.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct14">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Rubber Buffer.png" class="card-img-top" alt="Seals">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Rubber Buffer</h5>
+                            <p class="card-text text-muted">Impact-absorbing components made of rubber to dampen vibrations.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct12">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/Rubber Stopper-2.png" class="card-img-top" alt="Seals">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Rubber Stopper</h5>
+                            <p class="card-text text-muted">Dense, cylindrical plugs made entirely of rubber to seal glassware.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct13">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="images/RubberHanger-2.png" class="card-img-top" alt="Seals">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Rubber Hanger</h5>
+                            <p class="card-text text-muted">Rubber Hanger (Deflection: 3.5 to 12 mm) for Anti Vibration application.</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalProduct3">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding container">
+        <h2 class="text-center mb-5 fw-bold">Contact Us</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm p-4 h-100">
+                    <h4 class="mb-4">Get In Touch</h4>
+                    <p class="mb-3"><i class="fa-solid fa-map-marker-alt text-warning me-2"></i> <strong>Address:</strong><br>
+                    <span class="ms-4 d-block">05, Masjid/Narvel Compound, Uthalsar Road, Thane (W), Maharashtra, 400601</span></p>
+                    
+                    <p class="mb-3"><i class="fa-solid fa-phone text-warning me-2"></i> <strong>Phone:</strong><br>
+                    <span class="ms-4 d-block"><a href="tel:+918108932632" class="text-decoration-none text-dark">+91 8108932632</a></span>
+                    <span class="ms-4 d-block"><a href="tel:+918237273445" class="text-decoration-none text-dark">+91 8237273445</a></span></p>
+                    
+                    <p class="mb-3"><i class="fa-solid fa-envelope text-warning me-2"></i> <strong>Email:</strong><br>
+                    <span class="ms-4 d-block"><a href="mailto:prakashrubber1@gmail.com" class="text-decoration-none text-dark">prakashrubber1@gmail.com</a></span></p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="ratio ratio-4x3 shadow-sm rounded overflow-hidden h-100">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.123456789!2d72.978!3d19.200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEyJzAwLjAiTiA3MsKwNTgnNDguMCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="fa-solid fa-industry"></i> Prakash Rubber</h5>
+                    <p class="small text-secondary">We at Prakash Rubber Products, are promising to be one of the leading manufacturers and suppliers of a diverse assortment of Rubber Moldings.</p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-warning fw-bold mb-3">Our Products</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#products">Anti Vibration Mounts</a></li>
+                        <li class="mb-2"><a href="#products">Rubber Pads & Hangers</a></li>
+                        <li class="mb-2"><a href="#products">O-Rings & Gaskets</a></li>
+                        <li class="mb-2"><a href="#products">Cable Sleeves & Gromets</a></li>
+                        <li class="mb-2"><a href="#products">Oil Seals & Washers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-warning fw-bold mb-3">Contact Details</h5>
+                    <p class="mb-2"><i class="fa-solid fa-location-dot me-2"></i> 05, Masjid/Narvel Compound, Thane (W), 400601</p>
+                    <p class="mb-2"><i class="fa-solid fa-phone me-2"></i> <a href="tel:+918108932632">+91 8108932632</a></p>
+                    <p class="mb-2"><i class="fa-solid fa-phone me-2"></i> <a href="tel:+918108932632">+91 8237273445</a></p>
+                    <p class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <a href="mailto:prakashrubber1@gmail.com">prakashrubber1@gmail.com</a></p>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="text-center pb-3">
+                <small class="text-secondary">© 2026 Prakash Rubber Products. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <button type="button" class="btn btn-floating btn-lg shadow" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="modal fade" id="modalProduct1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Anti Vibration Turret Mounts</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Rubber to metal bonded mounts – Made from natural rubber and
+steel base and upper fixing boss. These mounts can be made
+available with neoprene as well as nitrile rubber for oil & environment
+resistant.Manufactured in three different sizes for various load
+capacities from 25kg to 995kg. Also can be manufactured in various
+hardness range from 40 to 85 shore A. Its applications are in the
+various field like Axial & Centrifugal Fans, Air Handling Units,
+Equipment’s used for Air conditioning, Packaged Air Conditioners,
+Floating Floors, Generators, Machineries, Equipment’s, Motors,
+Pumps, Engines, Refrigeration Plants, Rotary and Multi Cylinder
+Compressors.
+</p>
+                    <p><strong>Capacities:</strong> Manufactured in three different sizes for load capacities from 25kg to 995kg.</p>
+                    <p><strong>Applications:</strong> Fans, Air Handling Units, Generators, Motors, Pumps, Engines.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Anti-Vibration Pads</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Anti-Vibration Pads are suitable for reducing Noise and protect
+furniture as well as Floors. Can be used for Washing Machine, Fridge,
+Pumps, Motors, Furniture’s, Machineries, and HVAC simple field
+installation where no bolting is required and non-critical vibration
+conditions exists. Made from combination of High Quality Rubber
+Polymers. Also available with inserting Galvanized steel plate.
+Available in various design and sizes like100X100X38mm,
+128X128X10mm, 153X153X16mm. This variation is useful to provide
+extended load range. Available in different versions having a working
+Range.
+</p>
+                   </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Rubber Hanger</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Rubber Hanger (Deflection: 3.5 to 12 mm)
+for Anti Vibration application. It helps in
+preventing transmission of vibration from
+suspended equipment to building
+structure, as well as helps in reducing the
+sound vibration, for controlling low and
+high frequency vibration
+</p>
+                    <p><strong>Applications:</strong> For machine rooms,
+ventilators in air conditioning rooms and
+ducts, for small fan and duct in line fan, for
+structures suspended from the ceiling of,
+for example, studios and acoustical
+laboratories. For ceiling mounded FCU (fan
+coil unit).
+</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Rubber Mount</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Rubber Mount inserted with metal
+available in size L=103mm X W=58mm X
+height 48mm. At base, having grooves to
+avoid friction. The mount base design
+allows to do fitment of instrument easily,
+based on various hardness design can be
+used for various load capacities.
+
+</p>
+                      </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct5" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cable Entry</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Rubber Sleeves: Useful for cable entry
+available in various sizes with diameter
+1”, 1.25”, 2”, 2.5”, 3” etc. These sizes are
+ideal where the panel is too thick to
+accommodate a grommet. A Cable
+Entry Sleeve is typically used to protect
+cables and wires being pushed
+through holes in various industries
+such as Renewable & sustainable
+industries, Defence, Automobile
+industry, Electrical, Electronics
+Engineering, Rail, Construction and
+Aerospace.
+
+</p>
+                   </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct6" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">O RIngs</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> O rings are circular elastomer seals
+designed to prevent the leakage of
+fluids or gases in a wide range of
+mechanical and industrial
+applications. They are typically made
+of rubber or other flexible materials
+and function by fitting into a groove
+and compressing to create a seal
+between two mating surfaces.
+</p>
+                  </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct7" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bolt Sandwich Mounts</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Bolt Sandwich Mounts are designed to protect equipment and
+machinery against damaging vibration. This type of mounts has
+excellent capacity for energy control. These type of mounts are
+manufactured with high-strength bonds and specially compounded
+elastomers, which provides high load-carrying capacity and assure
+long life. The design and unitized construction provide low-cost
+mounting systems which are compact, lightweight, easy to install
+and maintenance-free. Typical applications of this type of mount
+includes business machines, medical equipment, motorcycles,
+heating, ventilating and air conditioning equipment, light motors,
+appliances, shipping containers, feeders, compactors and vibratory
+rollers. These are available in various sizes.
+</p>
+                      </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct8" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Industrial Gasket</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> A gasket is a mechanical seal that serves to fill the space between
+two objects in order to prevent leak between two objects while under
+pressure. In other words, gaskets are used to stop fluid or gas leaks
+by providing a barrier or a seal between two mating surfaces. The
+gasket must be able to maintain a seal or block under temperature
+and pressure changes. It is generally employed in static application
+while seals (such as O-ring, U-seal, V-seal, Wiper Seal, Rod seal,
+Piston seal, Dust seal etc) are employed in dynamic application.
+</p>
+                    <p><strong>Available in following Rubber types::</strong>-EPDM
+-Silicon</p>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct9" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Rubber Gromets</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Rubber gromets are small, flexible rings designed to protect and
+organize cables, wires, or hoses as they pass through openings in
+various materials. Serving as a cushioned barrier, they prevent
+abrasion and damage while ensuring a secure, sealed connection.
+Commonly used in automotive, electrical, and plumbing applications,
+rubber gromets offer dependable protection and organization for
+wiring and tubing.
+</p>
+                    <p><strong>Available in following Rubber types:</strong>-EPDM
+-Natural
+-NBR</p>
+                   </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct10" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Rubber Damper</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Rubber dampers, are flexible components designed to reduce or
+absorb vibrations, shocks, or noise in mechanical systems. Typically
+made from rubber or elastomeric materials, they dissipate kinetic
+energy by converting it into heat, thereby minimizing the impact of
+vibrations on machinery or equipment. Rubber dampers play a
+crucial role in enhancing stability, reducing noise levels, and
+extending the lifespan of various industrial and automotive systems.
+</p>
+                    <p><strong>Available in following Rubber types:</strong> -EPDM
+-Natural</p>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct11" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Rubber Washers</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Rubber washers are small, circular seals made from flexible rubber
+material. They are commonly used to create a tight seal between two
+mating surfaces, such as nuts and bolts or pipes and fittings. Rubber
+washers help prevent leaks by providing a cushioned barrier and
+compensating for irregularities in surfaces. Widely employed in
+plumbing, automotive, and machinery applications, rubber washers
+offer reliable sealing and protection against fluid or gas leakage.
+</p>
+                    <p><strong>Available in following Rubber types:</strong>-EPDM
+-Natural
+-NBR
+-Silicone</p>
+                      </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct12" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Rubber Buffer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Rubber buffers are impact-absorbing components made of rubber,
+used to dampen vibrations and cushion against shocks in machinery
+and industrial equipment.
+</p>
+                    <p><strong>Available in following Rubber types:</strong>-Natural
+</p>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalProduct13" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Rubber Stopper</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Solid rubber stoppers are dense, cylindrical plugs made entirely of
+rubber, typically used to seal laboratory glassware or containers in
+chemical and pharmaceutical applications. They provide a secure
+and airtight closure, preventing leakage and maintaining the
+integrity of the contents.
+</p>
+                    <p><strong>Available in following Rubber types:</strong>-Natural-SBR
+-EPDM
+</p>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="modal fade" id="modalProduct14" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Oil Seals</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> Rubber oil seals are seals designed to prevent oil leakage in rotating
+shaft applications.
+</p>
+                    
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+918108932632" class="btn btn-warning">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        let mybutton = document.getElementById("btn-back-to-top");
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        mybutton.addEventListener("click", backToTop);
+        function backToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>
